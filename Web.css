@@ -1,0 +1,185 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    height: 550vh;
+}
+header {
+    background-color: #800e14ee;
+    color: #fff;
+    text-align: center;
+    height: 194px;
+    position: absolute;
+    width: 100%;
+    /* padding: 10px; */
+}
+
+h1 {
+    margin: 0;
+}
+table, th, td {
+    border:1px solid black;
+    border-collapse: collapse;
+}
+.container {
+    /* position: absolute; */
+    z-index: 10;
+    margin: auto;
+    transform: translateY(65px);
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 80%;
+    background-color: #ffffff;
+    border-radius: 7px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.603);
+    padding: 10px;
+}
+.Highlights{
+    gap: 100px 0;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 30px;
+}
+.content{
+    width: 290px;
+    height: 370px;
+    margin: 0 auto;
+    margin-top: 250px;
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.185);
+}
+.article {
+    margin-bottom: 20px;
+}
+.ar2 {
+    margin-left: 10px;
+    align-items: center;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.Profile-Picture{
+    width: 100px;
+    position: absolute;
+    left: 0;
+    margin-left: 1%;
+    top: 0;
+    margin-top: 25px;
+}
+.fix{
+    background: fixed;
+}
+.input{
+    width: 150px;
+    padding: 5px 20px;
+    animation: slideshow .5s;
+    transition-duration: .6s;
+    background-color: rgba(255, 255, 255, 0.9);
+    /* border: solid 1px black; */
+    border: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+}
+/* .input .fix{
+    display: flex;
+
+}
+.input .fix input{
+    display: inline-block;
+}
+.input2{
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+} */
+.question{
+    display: block;
+    width: 500px;
+}
+.title{
+    font-size: 40px;
+    font-weight: 750;
+    font-family: Poppins;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    margin-top: 25px;
+    display: flex;
+}
+Nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    margin: auto;
+    margin-top: 0px;
+}
+.Nav a{
+    font-family: Poppins;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 5px 20px;
+    border-radius: 7px;
+    transition: all .3s ease-in-out;
+}
+.Nav a:hover{
+    color: #ff0000a6;
+    background-color: rgba(0, 0, 0, 0.212);
+}
+.Nav img{
+    width: 120px;
+}
+.Nav{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.Search{
+    display: flex;
+    justify-content: center;
+}
+.Search i:hover{
+    color: #ff0000a6;
+    background-color: rgba(0, 0, 0, 0.212);
+}
+.Search i{
+    font-weight: 500;
+    font-family: Poppins;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    transition: all .3s ease-in-out;
+    border-radius: 8px;
+}
+.hidden {
+    overflow: hidden;
+    width: 0px;
+    animation: slidehidden .5s;
+    transition-duration: .6s;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    cursor: default;
+}
+@keyframes slideshow {
+    from {width: 0px;}
+    to {width: 150px;}
+}
+@keyframes slidehidden {
+    from {width: 150px;}
+    to {width: 0px; display: none;}
+}
