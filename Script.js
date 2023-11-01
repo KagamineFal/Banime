@@ -1,6 +1,8 @@
 let Logo = document.getElementById("Logo");
+let listMenu = document.getElementById("listMenu")
+let navList = document.getElementById("navList")
 Logo.addEventListener("click", function(){
-    window.location.reload()
+    window.location.href=("/")
 })
 // window.location.href=("https://blog.alltheanime.com/")
 let search = document.getElementById("search");
@@ -15,4 +17,8 @@ search.addEventListener("click", () => {
     }else {
         input.disabled = false
     };
+})
+
+listMenu.addEventListener("click", () => {
+    navList.classList.toggle("navHidden")
 })
