@@ -23,7 +23,7 @@
 
             <div class="navall navHidden" id="navList">
                 <div class="Nav">
-                    <a href="/"> HOME</a>
+                    <a href="/"> AKU</a>
                     <a href="/katagori.php"> CATEGORIES</a>
                     <a href="/about.php"> ABOUT US</a>
                 </div>
