@@ -11,7 +11,7 @@
 <div class="Highlights">
     <!-- start -->
     <?php
-    include("konekssgagawgawi.php");
+    include("koneksi.php");
 
     // Tentukan jumlah item per halaman
     $item_per_page = 9;
