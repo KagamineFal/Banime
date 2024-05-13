@@ -82,7 +82,7 @@ if(isset($_POST['login'])){
         // Login berhasil
         session_start();
         $_SESSION['username_or_email'] = $username_or_email;
-        header("Location: ../index.php"); // Redirect ke halaman dashboard
+        header("Location: ../terlogin.php"); // Redirect ke halaman dashboard
         exit();
     } else {
         // Login gagal
