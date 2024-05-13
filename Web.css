@@ -439,7 +439,7 @@ nav {
     
     .sub-menu-warp {
         position: absolute;
-        /* top: 5%; */
+        /* top: 0; */
         right: 5%; 
         width: 320px;
         max-width: 250px;
@@ -522,7 +522,7 @@ nav {
     .sub-menu-link:hover p {
         font-weight: 600;
     }
-}    
+} 
 
 @media only screen and (max-width:724px) {
     .container {
@@ -593,31 +593,7 @@ nav {
         top: 17px;
     }
     
-    .sub-menu-warp {
-        position: absolute;
-        /* top: 5%; */
-        right: 5%; 
-        width: 320px;
-        max-width: 250px;
-        border: 0px solid #ffffff85;
-        border-radius: 10px;
-        max-height: 0px;
-        overflow: hidden;
-        transition: all 0.5s;
-    }
     
-    .sub-menu-warp.open-menu {
-        max-height: 400px;
-        border: 3px solid #56565685;
-        border-radius: 10px;
-    }
-    
-    .sub-menu {
-        background: #fff;
-        padding: 20px;
-        margin: 0px;
-        border-radius: 10px;    
-    }
 }
 
 @media only screen and (min-width:1820px) {
