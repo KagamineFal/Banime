@@ -52,6 +52,6 @@
 <script>
     function logout() {
         // Hancurkan sesi
-        window.location.href = 'logout.php';
+        window.location.href = '/User/logout.php';
     }
 </script>
