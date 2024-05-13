@@ -7,8 +7,6 @@
     <title>Banime</title>
     <link rel="stylesheet" href="Web.css">
     <link rel="icon" href="/Assets/BanimeLogo.png">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <script src="/Script.js"></script>
 </head>
 
 <body>
@@ -158,6 +156,8 @@
         <p>&copy; 2023 Your Website. All rights reserved.</p>
     </footer>
 
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="/Script.js"></script>
 
 </body>
 
