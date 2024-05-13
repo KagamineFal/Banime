@@ -14,7 +14,7 @@
             </div>
             <div class="Search">
                 <form method="get" action="index.php">
-                    <input class="input hidden" type="text" name="search" id="input" placeholder="Search">
+                    <input class="input hidden" type="text" name="search" id="input" placeholder="Search" disabled>
                 </form>
                 <i class="ph ph-magnifying-glass" id="search"></i>
             </div>
