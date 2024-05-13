@@ -42,9 +42,16 @@
 
                 <!-- Ganti link dan isi sub-menu sesuai dengan kebutuhan -->
                 <div class="button-nav">
-                    <button onclick="window.location=('/logout.php')">Logout</button>
+                    <button onclick="window.location=('index.php')">Logout</button>
                 </div>
             </div>
         </div>
     </nav>
 </header>
+
+<script>
+    function logout() {
+        // Hancurkan sesi
+        window.location.href = 'logout.php';
+    }
+</script>
