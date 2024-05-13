@@ -1,0 +1,13 @@
+.user-register{
+    display: flex;
+    justify-content: center;
+}
+
+.user-register a{
+    color: #000000;
+}
+
+.user-register a:hover{
+    color: #800e14;
+    text-decoration: none;
+}

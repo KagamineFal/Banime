@@ -40,7 +40,7 @@
                     <hr>
 
                     <div class="button-nav">
-                        <button onclick="">Login</button>
+                        <button onclick="window.location=('/User/login.php')">Login</button>
                     </div>
                 </div>
             </div>
