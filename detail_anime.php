@@ -1,4 +1,16 @@
 <?php
+session_start();
+if (!isset($_SESSION["email"])) {
+    // Redirect ke halaman login jika belum login
+    header("Location: login.php");
+    exit();
+}
+
+// Tampilkan halaman dashboard
+// echo "Selamat datang, " . $_SESSION["email"] . "! Ini adalah halaman dashboard.";
+?>
+
+<?php
 include("koneksi.php");
 $id = $_GET['idx'];
 $sql = "SELECT * FROM konten_anime WHERE id = $id";

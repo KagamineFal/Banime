@@ -14,9 +14,18 @@
 
 <body>
     
-    <?php
-    include("header.php");
-    ?>
+<?php
+session_start(); // Mulai session
+
+// Cek apakah pengguna sudah login
+if(isset($_SESSION['username'])) {
+    // Jika sudah login, tampilkan tampilan untuk pengguna yang sudah login
+    include("loginheader.php"); // Ganti dengan header untuk pengguna yang sudah login
+} else {
+    // Jika belum login, tampilkan tampilan default
+    include("header.php"); // Gunakan header default
+}
+?>
 
     <div class="container">
         <div class="wrapper">
