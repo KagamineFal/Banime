@@ -18,55 +18,11 @@ if(isset($_SESSION['username_or_email'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banime</title>
-    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="/css/about.css">
     <link rel="icon" href="/Assets/BanimeLogo.png">
 </head>
 
 <body>
-    <header>
-        <div class="header"></div>
-        <nav>
-            <img src="/Assets/Banime.png" alt="Profile" id="Logo">
-            <div class="list-menu" id="listMenu">
-                <i class="ph ph-list"></i>
-            </div>
-
-            <div class="navall navHidden" id="navList">
-                <div class="Nav">
-                    <a href="/"> HOME</a>
-                    <a href="/katagori.php"> CATEGORIES</a>
-                    <a href="/"> ABOUT US</a>
-                </div>
-                <div class="Search">
-                    <form method="get" action="index.php">
-                        <input class="input hidden" type="text" name="search" id="input" placeholder="Search">
-                    </form>
-                    <i class="ph ph-magnifying-glass" id="search"></i>
-                </div>
-            </div>
-
-            <div class="Login">
-                <i class="ph ph-user-circle" onclick="toggleMenu()"></i>
-            </div>
-
-            <div class="sub-menu-warp" id="subMenu">
-                <div class="sub-menu">
-                    <div class="user-info">
-                        <i class="ph ph-user-circle"></i>
-                        <h2>Profile</h2>
-                    </div>
-                    <hr>
-
-                    <a href="/Admin/login.php" class="sub-menu-link">
-                        <i class="ph ph-key"></i>
-                        <p>Admin Area</p>
-                        <span>❯</span>
-                    </a>
-                </div>
-            </div>
-        </nav>
-    </header>
-
     <div class="container">
         <div class="wrapper">
             <div class="Desc">
