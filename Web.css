@@ -439,7 +439,6 @@ nav {
     
     .sub-menu-warp {
         position: absolute;
-        /* top: 0; */
         right: 5%; 
         width: 320px;
         max-width: 250px;
