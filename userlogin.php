@@ -27,8 +27,6 @@ if (!isset($_SESSION["$username_or_email"])) {
 <body>
     
 <?php
-session_start(); // Mulai session
-
 // Cek apakah pengguna sudah login
 if(isset($_SESSION['$username_or_email'])) {
     // Jika sudah login, tampilkan tampilan untuk pengguna yang sudah login
