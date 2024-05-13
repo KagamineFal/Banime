@@ -1,102 +1,158 @@
-<?= $this->extend('Layout.php') ?>
+<!DOCTYPE html>
+<html lang="en">
 
-<?= $this->section('css') ?>
-<link rel="stylesheet" href="/Web.css">
-<?= $this->endSection() ?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banime</title>
+    <link rel="stylesheet" href="/Web.css">
+    <link rel="icon" href="/Assets/BanimeLogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
 
-<?= $this->section('header') ?>
-<p>Highlights</p>
-<?= $this->endSection() ?>
+<body>
+    <header>
+        <div class="header"></div>
+        <nav>
+            <img src="/Assets/Banime.png" alt="Profile" id="Logo">
+            <div class="list-menu" id="listMenu">
+                <i class="ph ph-list"></i>
+            </div>
 
-<?= $this->section('content') ?>
-<div class="title">
-    <p>Highlights</p>
-</div>
-<div class="Highlights">
-
-    <!-- start -->
-    <?php
-    include ("koneksi.php");
-
-    // Tentukan jumlah item per halaman
-    $item_per_page = 9;
-
-    // Ambil halaman saat ini
-    $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-
-    // Hitung offset untuk query SQL
-    $offset = ($current_page - 1) * $item_per_page;
-
-    // Tentukan kata kunci pencarian
-    $search_keyword = isset($_GET['search']) ? $_GET['search'] : '';
-
-    // Query SQL dengan LIMIT, OFFSET, dan kondisi pencarian
-    $sql = "SELECT * FROM konten_anime WHERE judul LIKE '%$search_keyword%' OR deskripsi LIKE '%$search_keyword%' LIMIT $item_per_page OFFSET $offset";
-    $result = $conn->query($sql);
-
-    $no = 1;
-    ?>
-
-    <!-- start -->
-    <?php if ($result->num_rows > 0): ?>
-        <!-- Output data of each row -->
-        <?php while ($row = $result->fetch_assoc()): ?>
-            <div class="content">
-                <div class="image">
-                    <a href="/detail_anime.php?idx=<?php echo $row['id']; ?>"><img
-                            src="/Admin/photos/<?php echo $row["gambar"] ?>" alt="Content_Picture"></a>
+            <div class="navall navHidden" id="navList">
+                <div class="Nav">
+                    <a href="/"> HOME</a>
+                    <a href="/katagori.php"> CATEGORIES</a>
+                    <a href="/about.php"> ABOUT US</a>
                 </div>
-                <div class="text">
-                    <div class="Desc">
-                        <div class="card_title">
-                            <a href="/detail_anime.php?idx=<?php echo $row['id']; ?>"><?php echo $row["judul"] ?></a>
-                        </div>
-                        <?php echo $row['deskripsi']; ?>
-                    </div>
-                    <div class="Date">
-                        <p><?php echo $row["tgl"] ?></p>
-                    </div>
+                <div class="Search">
+                    <form method="get" action="index.php">
+                        <input class="input hidden" type="text" name="search" id="input" placeholder="Search">
+                    </form>
+                    <i class="ph ph-magnifying-glass" id="search"></i>
                 </div>
             </div>
-        <?php endwhile; ?>
-    <?php endif; ?>
-    <!-- End konten Loop -->
 
-    <!-- Pagination Links -->
+            <div class="Login">
+                <i class="ph ph-user-circle" onclick="toggleMenu()"></i>
+            </div>
 
-</div>
-<div class="pagination">
-    <?php
-    // Hitung total halaman
-    $total_pages = ceil($conn->query("SELECT COUNT(*) FROM konten_anime WHERE judul LIKE '%$search_keyword%' OR deskripsi LIKE '%$search_keyword%'")->fetch_row()[0] / $item_per_page);
+            <div class="sub-menu-warp" id="subMenu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <i class="ph ph-user-circle"></i>
+                        <h2>Profile</h2>
+                    </div>
+                    <hr>
 
-    // Tampilkan tombol "Previous" jika bukan halaman pertama
-    if ($current_page > 1) {
-        echo "<a href='?page=" . ($current_page - 1) . "&search=$search_keyword'>&laquo; Previous</a>";
-    }
+                    <a href="/Admin/login.php" class="sub-menu-link">
+                        <i class="ph ph-key"></i>
+                        <p>Admin Area</p>
+                        <span>❯</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    // Tampilkan link pagination jika lebih dari satu halaman
-    if ($total_pages > 1) {
-        // Tampilkan link pagination
-        for ($i = 1; $i <= $total_pages; $i++) {
-            $activeClass = ($i == $current_page) ? 'active' : '';
-            echo "<a href='?page=$i&search=$search_keyword' class='$activeClass'>$i</a>";
-        }
+    <div class="container">
+        <div class="wrapper">
+            <div class="title">
+                <p>Highlights</p>
+            </div>
+            <div class="Highlights">
 
-        // Tampilkan tombol "Next" jika bukan halaman terakhir
-        if ($current_page < $total_pages) {
-            echo "<a href='?page=" . ($current_page + 1) . "&search=$search_keyword'>Next &raquo;</a>";
-        }
-    }
+                <!-- start -->
+                <?php
+                include("koneksi.php");
 
-    ?>
-</div>
+                // Tentukan jumlah item per halaman
+                $item_per_page = 9;
+
+                // Ambil halaman saat ini
+                $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+                // Hitung offset untuk query SQL
+                $offset = ($current_page - 1) * $item_per_page;
+
+                // Tentukan kata kunci pencarian
+                $search_keyword = isset($_GET['search']) ? $_GET['search'] : '';
+
+                // Query SQL dengan LIMIT, OFFSET, dan kondisi pencarian
+                $sql = "SELECT * FROM konten_anime WHERE judul LIKE '%$search_keyword%' OR deskripsi LIKE '%$search_keyword%' LIMIT $item_per_page OFFSET $offset";
+                $result = $conn->query($sql);
+
+                $no = 1;
+                ?>
+
+                <!-- start -->
+                <?php if ($result->num_rows > 0) : ?>
+                    <!-- Output data of each row -->
+                    <?php while ($row = $result->fetch_assoc()) : ?>
+                        <div class="content">
+                            <div class="image">
+                            <a href="/detail_anime.php?idx=<?php echo $row['id']; ?>"><img src="/Admin/photos/<?php echo $row["gambar"] ?>" alt="Content_Picture"></a>
+                            </div>
+                            <div class="text">
+                                <div class="Desc">
+                                    <div class="card_title">
+                                        <a href="/detail_anime.php?idx=<?php echo $row['id']; ?>"><?php echo $row["judul"] ?></a>
+                                    </div>
+                                    <?php echo $row['deskripsi']; ?>
+                                </div>
+                                <div class="Date">
+                                    <p><?php echo $row["tgl"] ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+                <!-- End konten Loop -->
+
+                <!-- Pagination Links -->
+
+            </div>
+            <div class="pagination">
+                <?php
+                // Hitung total halaman
+                $total_pages = ceil($conn->query("SELECT COUNT(*) FROM konten_anime WHERE judul LIKE '%$search_keyword%' OR deskripsi LIKE '%$search_keyword%'")->fetch_row()[0] / $item_per_page);
+
+                // Tampilkan tombol "Previous" jika bukan halaman pertama
+                if ($current_page > 1) {
+                    echo "<a href='?page=" . ($current_page - 1) . "&search=$search_keyword'>&laquo; Previous</a>";
+                }
+
+                // Tampilkan link pagination jika lebih dari satu halaman
+                if ($total_pages > 1) {
+                    // Tampilkan link pagination
+                    for ($i = 1; $i <= $total_pages; $i++) {
+                        $activeClass = ($i == $current_page) ? 'active' : '';
+                        echo "<a href='?page=$i&search=$search_keyword' class='$activeClass'>$i</a>";
+                    }
+
+                    // Tampilkan tombol "Next" jika bukan halaman terakhir
+                    if ($current_page < $total_pages) {
+                        echo "<a href='?page=" . ($current_page + 1) . "&search=$search_keyword'>Next &raquo;</a>";
+                    }
+                }
+
+                ?>
+            </div>
 
 
-<!-- End konten Loop -->
-<?php $conn->close(); ?>
-<?= $this->endSection() ?>
+            <!-- End konten Loop -->
+            <?php $conn->close(); ?>
+        </div>
+    </div>
 
-<?= $this->section('js') ?>
-<script src="Script.js"></script>
-<?= $this->endSection() ?>
+    <footer>
+        <p>&copy; 2023 Banime. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="Script.js"></script>
+</body>
+
+</html>
