@@ -9,58 +9,62 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-<div class="container">
-    <div class="wrapper">
-        <!-- start -->
-        <?php
-        include("koneksi.php");
+<div class="title">
+    <p>Highlights</p>
+</div>
+<div class="Highlights">
 
-        // Tentukan jumlah item per halaman
-        $item_per_page = 9;
+    <!-- start -->
+    <?php
+    include ("koneksi.php");
 
-        // Ambil halaman saat ini
-        $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+    // Tentukan jumlah item per halaman
+    $item_per_page = 9;
 
-        // Hitung offset untuk query SQL
-        $offset = ($current_page - 1) * $item_per_page;
+    // Ambil halaman saat ini
+    $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
 
-        // Tentukan kata kunci pencarian
-        $search_keyword = isset($_GET['search']) ? $_GET['search'] : '';
+    // Hitung offset untuk query SQL
+    $offset = ($current_page - 1) * $item_per_page;
 
-        // Query SQL dengan LIMIT, OFFSET, dan kondisi pencarian
-        $sql = "SELECT * FROM konten_anime WHERE judul LIKE '%$search_keyword%' OR deskripsi LIKE '%$search_keyword%' LIMIT $item_per_page OFFSET $offset";
-        $result = $conn->query($sql);
+    // Tentukan kata kunci pencarian
+    $search_keyword = isset($_GET['search']) ? $_GET['search'] : '';
 
-        $no = 1;
-        ?>
+    // Query SQL dengan LIMIT, OFFSET, dan kondisi pencarian
+    $sql = "SELECT * FROM konten_anime WHERE judul LIKE '%$search_keyword%' OR deskripsi LIKE '%$search_keyword%' LIMIT $item_per_page OFFSET $offset";
+    $result = $conn->query($sql);
 
-        <!-- start -->
-        <?php if ($result->num_rows > 0) : ?>
-            <!-- Output data of each row -->
-            <?php while ($row = $result->fetch_assoc()) : ?>
-                <div class="content">
-                    <div class="image">
-                        <a href="/detail_anime.php?idx=<?php echo $row['id']; ?>"><img src="/Admin/photos/<?php echo $row["gambar"] ?>" alt="Content_Picture"></a>
+    $no = 1;
+    ?>
+
+    <!-- start -->
+    <?php if ($result->num_rows > 0): ?>
+        <!-- Output data of each row -->
+        <?php while ($row = $result->fetch_assoc()): ?>
+            <div class="content">
+                <div class="image">
+                    <a href="/detail_anime.php?idx=<?php echo $row['id']; ?>"><img
+                            src="/Admin/photos/<?php echo $row["gambar"] ?>" alt="Content_Picture"></a>
+                </div>
+                <div class="text">
+                    <div class="Desc">
+                        <div class="card_title">
+                            <a href="/detail_anime.php?idx=<?php echo $row['id']; ?>"><?php echo $row["judul"] ?></a>
+                        </div>
+                        <?php echo $row['deskripsi']; ?>
                     </div>
-                    <div class="text">
-                        <div class="Desc">
-                            <div class="card_title">
-                                <a href="/detail_anime.php?idx=<?php echo $row['id']; ?>"><?php echo $row["judul"] ?></a>
-                            </div>
-                            <?php echo $row['deskripsi']; ?>
-                        </div>
-                        <div class="Date">
-                            <p><?php echo $row["tgl"] ?></p>
-                        </div>
+                    <div class="Date">
+                        <p><?php echo $row["tgl"] ?></p>
                     </div>
                 </div>
-            <?php endwhile; ?>
-        <?php endif; ?>
-        <!-- End konten Loop -->
-        <?php $conn->close(); ?>
-    </div>
-</div>
+            </div>
+        <?php endwhile; ?>
+    <?php endif; ?>
+    <!-- End konten Loop -->
 
+    <!-- Pagination Links -->
+
+</div>
 <div class="pagination">
     <?php
     // Hitung total halaman
@@ -84,8 +88,13 @@
             echo "<a href='?page=" . ($current_page + 1) . "&search=$search_keyword'>Next &raquo;</a>";
         }
     }
+
     ?>
 </div>
+
+
+<!-- End konten Loop -->
+<?php $conn->close(); ?>
 <?= $this->endSection() ?>
 
 <?= $this->section('js') ?>

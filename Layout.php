@@ -59,14 +59,9 @@
 
     <div class="container">
         <div class="wrapper">
-            <div class="title">
-                <?= $this->renderSection('header') ?>
-            </div>
 
             <?= $this->renderSection('content') ?>
 
-            <!-- End konten Loop -->
-            <?php $conn->close(); ?>
         </div>
     </div>
 
