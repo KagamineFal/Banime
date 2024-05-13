@@ -1,14 +1,4 @@
-<?php
-session_start();
-if (!isset($_SESSION["$username_or_email"])) {
-    // Redirect ke halaman login jika belum login
-    header("Location: login.php");
-    exit();
-}
 
-// Tampilkan halaman dashboard
-// echo "Selamat datang, " . $_SESSION["email"] . "! Ini adalah halaman dashboard.";
-?>
 
 <!DOCTYPE html>
 <html lang="en">
