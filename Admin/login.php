@@ -91,7 +91,7 @@ include("koneksi.php"); // Sesuaikan dengan nama file koneksi Anda
 if (isset($_POST["login"])) {
     $email = $_POST["email"];
     $pass = $_POST["pass"];
-    $result = $conn->query("SELECT * FROM users WHERE email='$email' AND pass='$pass'");
+    $result = $conn->query("SELECT * FROM admin WHERE email='$email' AND pass='$pass'");
 
     if ($result->num_rows > 0) {
         // Login berhasil
