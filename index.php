@@ -1,3 +1,23 @@
+<?php
+session_start();
+if (!isset($_SESSION["username_or_email"])) {
+    // Redirect ke halaman login jika belum login
+    header("Location: /User/login.php");
+    exit(); 
+}
+
+if(isset($_SESSION['username_or_email'])) {
+    // Jika sudah login, tampilkan tampilan untuk pengguna yang sudah login
+    include("loginheader.php"); // Ganti dengan header untuk pengguna yang sudah login
+} else {
+    // Jika belum login, tampilkan tampilan default
+    include("header.php"); // Gunakan header default
+}
+
+// Tampilkan halaman dashboard
+// echo "Selamat datang, " . $_SESSION["email"] . "! Ini adalah halaman dashboard.";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,19 +33,6 @@
 </head>
 
 <body>
-    
-<?php
-session_start(); // Mulai session
-
-// Cek apakah pengguna sudah login
-if(isset($_SESSION['username'])) {
-    // Jika sudah login, tampilkan tampilan untuk pengguna yang sudah login
-    include("loginheader.php"); // Ganti dengan header untuk pengguna yang sudah login
-} else {
-    // Jika belum login, tampilkan tampilan default
-    include("header.php"); // Gunakan header default
-}
-?>
 
     <div class="container">
         <div class="wrapper">

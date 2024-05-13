@@ -42,7 +42,7 @@
 
                 <!-- Ganti link dan isi sub-menu sesuai dengan kebutuhan -->
                 <div class="button-nav">
-                    <button onclick="window.location=('index.php')">Logout</button>
+                    <button onclick="window.location=('/User/logout.php')">Logout</button>
                 </div>
             </div>
         </div>

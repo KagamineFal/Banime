@@ -2,8 +2,16 @@
 session_start();
 if (!isset($_SESSION["username_or_email"])) {
     // Redirect ke halaman login jika belum login
-    header("Location: login.php");
-    exit();
+    header("Location: /User/login.php");
+    exit(); 
+}
+
+if(isset($_SESSION['username_or_email'])) {
+    // Jika sudah login, tampilkan tampilan untuk pengguna yang sudah login
+    include("loginheader.php"); // Ganti dengan header untuk pengguna yang sudah login
+} else {
+    // Jika belum login, tampilkan tampilan default
+    include("header.php"); // Gunakan header default
 }
 
 // Tampilkan halaman dashboard

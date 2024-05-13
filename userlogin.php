@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION["username_or_email"])) {
     // Redirect ke halaman login jika belum login
-    header("Location: login.php");
+    header("Location: /User/login.php");
     exit(); 
 }
 
