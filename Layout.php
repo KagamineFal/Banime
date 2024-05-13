@@ -62,39 +62,8 @@
             <div class="title">
                 <?= $this->renderSection('header') ?>
             </div>
-            <div class="Highlights">
 
-                <?= $this->renderSection('content') ?>
-
-
-            </div>
-            <div class="pagination">
-                <?php
-                // Hitung total halaman
-                $total_pages = ceil($conn->query("SELECT COUNT(*) FROM konten_anime WHERE judul LIKE '%$search_keyword%' OR deskripsi LIKE '%$search_keyword%'")->fetch_row()[0] / $item_per_page);
-
-                // Tampilkan tombol "Previous" jika bukan halaman pertama
-                if ($current_page > 1) {
-                    echo "<a href='?page=" . ($current_page - 1) . "&search=$search_keyword'>&laquo; Previous</a>";
-                }
-
-                // Tampilkan link pagination jika lebih dari satu halaman
-                if ($total_pages > 1) {
-                    // Tampilkan link pagination
-                    for ($i = 1; $i <= $total_pages; $i++) {
-                        $activeClass = ($i == $current_page) ? 'active' : '';
-                        echo "<a href='?page=$i&search=$search_keyword' class='$activeClass'>$i</a>";
-                    }
-
-                    // Tampilkan tombol "Next" jika bukan halaman terakhir
-                    if ($current_page < $total_pages) {
-                        echo "<a href='?page=" . ($current_page + 1) . "&search=$search_keyword'>Next &raquo;</a>";
-                    }
-                }
-
-                ?>
-            </div>
-
+            <?= $this->renderSection('content') ?>
 
             <!-- End konten Loop -->
             <?php $conn->close(); ?>
