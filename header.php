@@ -37,6 +37,11 @@
                         <p>Admin Area</p>
                         <span>❯</span>
                     </a>
+                    <hr>
+
+                    <div class="button-nav">
+                        <button>Login</button>
+                    </div>
                 </div>
             </div>
         </nav>
