@@ -1,10 +1,5 @@
 <?php
 session_start();
-if (!isset($_SESSION["username_or_email"])) {
-    // Redirect ke halaman login jika belum login
-    header("Location: /User/login.php");
-    exit(); 
-}
 
 if(isset($_SESSION['username_or_email'])) {
     // Jika sudah login, tampilkan tampilan untuk pengguna yang sudah login
