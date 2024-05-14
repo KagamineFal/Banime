@@ -43,7 +43,7 @@
                 <a href="#">Forget Your Password?</a>
                 <button type="submit" name="login">Sign In</button>
             </form>
-            
+
         </div>
         <div class="toggle-container">
             <div class="toggle">
@@ -68,10 +68,11 @@
 </html>
 
 <?php
-include_once("koneksi.php");
+require 'koneksi.php';
+session_start();
 
 // Login
-if(isset($_POST['login'])){
+if (isset($_POST['login'])) {
     $username_or_email = $_POST['username_or_email'];
     $password = $_POST['password'];
 
@@ -80,8 +81,8 @@ if(isset($_POST['login'])){
 
     if ($result->num_rows > 0) {
         // Login berhasil
-        session_start();
-        $_SESSION['username_or_email'] = $username_or_email;
+        $user = $result->fetch_assoc();
+        $_SESSION['id'] = $user['id']; // Set session id
         header("Location: ../index.php"); // Redirect ke halaman dashboard
         exit();
     } else {
@@ -101,7 +102,7 @@ if(isset($_POST['login'])){
 }
 
 // Register
-if(isset($_POST['register'])){
+if (isset($_POST['register'])) {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -125,10 +126,11 @@ if(isset($_POST['register'])){
         </script>";
     } else {
         // Email belum terdaftar, lakukan pendaftaran
-        $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
+        $sql = "INSERT INTO users (username, email, password, profilepicture) VALUES ('$username', '$email', '$password', 'default_profile_image.jpg')";
 
         if ($conn->query($sql) === TRUE) {
             // Registrasi berhasil
+            $_SESSION['id'] = mysqli_insert_id($conn); // Set session id
             echo "<script>
             Swal.fire({
                 icon: 'success',
@@ -137,7 +139,7 @@ if(isset($_POST['register'])){
                 showConfirmButton: false,
                 timer: 2000
             }).then(function() {
-                window.location.href = 'login.php';
+                window.location.href = 'ProfileController.php';
             });
             </script>";
         } else {
@@ -158,4 +160,3 @@ if(isset($_POST['register'])){
 }
 
 ?>
-
