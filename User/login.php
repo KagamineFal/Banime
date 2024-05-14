@@ -83,6 +83,7 @@ if (isset($_POST['login'])) {
         // Login berhasil
         $user = $result->fetch_assoc();
         $_SESSION['id'] = $user['id']; // Set session id
+        $_SESSION['username_or_email'] = $user['username']; // Set session username_or_email
         header("Location: ../index.php"); // Redirect ke halaman dashboard
         exit();
     } else {
