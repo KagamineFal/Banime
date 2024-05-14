@@ -1,5 +1,8 @@
 <?php
-if(isset($_SESSION['username_or_email'])) {
+// Index.php
+session_start();
+
+if(isset($_SESSION['id'])) {
     // Jika sudah login, tampilkan tampilan untuk pengguna yang sudah login
     include("Header/loginheader.php"); // Ganti dengan header untuk pengguna yang sudah login
 } else {
