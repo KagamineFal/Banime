@@ -12,9 +12,9 @@ body{
     background: linear-gradient(to right, #e2e2e2, #c9d6ff);
     /* display: flex; */
     position: relative;
-    /* align-items: center;
+    align-items: center;
     justify-content: center;
-    flex-direction: column; */
+    flex-direction: column;
     height: 100vh;
 }
 
@@ -24,8 +24,7 @@ body{
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     top: 50%;
     left: 50%;
-    /* transform: translateX(50%);
-    transform: translateY(50%); */
+    transform: translate(-50%, -50%);
     overflow: hidden;
     width: 768px;
     max-width: 100%;
