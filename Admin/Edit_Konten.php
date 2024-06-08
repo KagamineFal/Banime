@@ -51,7 +51,7 @@ if ($result->num_rows > 0) {
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-            <script src="https://cdn.tiny.cloud/1/j1yiv9x82g9wptlzjslze7b78iaqf1ull21shtpy37np26fw/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+            <script src="https://cdn.tiny.cloud/1/1f8mhev1qrynsazjp2sazeyjfotd6klab39nkjhoep1hw3o5/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
         </head>
         <!-- Place the first <script> tag in your HTML's <head> -->
 
